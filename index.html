@@ -1,241 +1,165 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Roteiro de 3 dias em Tábua – 15 a 17 de Agosto de 2025</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --card: #111111;
-      --accent: #00ff88;
-      --accent-glow: #00ff8833;
-      --text: #e5e5e5;
-      --subtle: #888;
-      --border: #1e1e1e;
-      --font: "Inter", sans-serif;
-      --shadow: 0 0 20px var(--accent-glow);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ---------- ANIMATED BANNER ---------- */
-    .banner {
-      position: relative;
-      height: 50vh;
-      overflow: hidden;
-    }
-    .banner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: saturate(1.2) contrast(1.1);
-      animation: pulse 8s ease-in-out infinite alternate;
-    }
-    .banner-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,.55);
-      backdrop-filter: blur(2px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-    .banner-text {
-      font-weight: 700;
-      font-size: clamp(1.6rem, 4vw, 3rem);
-      color: var(--accent);
-      text-shadow: 0 0 12px var(--accent-glow);
-      animation: glow 2s ease-in-out infinite alternate;
-    }
-    @keyframes pulse {
-      from { transform: scale(1.02); }
-      to   { transform: scale(1.08); }
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 12px var(--accent-glow); }
-      to   { text-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent); }
-    }
-
-    /* ---------- CONTAINER ---------- */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 5rem;
-    }
-
-    h1, h2, h3 {
-      color: var(--accent);
-      margin-top: 2.5rem;
-    }
-    h1 {
-      font-size: 2.2rem;
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: .5rem;
-    }
-
-    /* ---------- TABLE ---------- */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1.2rem;
-      background: var(--card);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-    th, td {
-      padding: .9rem 1.1rem;
-      border: 1px solid var(--border);
-    }
-    th {
-      background: var(--accent);
-      color: #000;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-    }
-    tr:hover {
-      background: #181818;
-      transition: background .3s;
-    }
-
-    /* ---------- LIST / BLOCKQUOTE ---------- */
-    ul {
-      margin: .5rem 0 1.5rem 1.25rem;
-    }
-    blockquote {
-      margin: 1rem 0;
-      padding: 1rem 1.2rem;
-      background: var(--card);
-      border-left: 3px solid var(--accent);
-      border-radius: 4px;
-      font-style: italic;
-      box-shadow: var(--shadow);
-    }
-
-    .checklist {
-      list-style: none;
-      padding-left: 0;
-    }
-    .checklist li::before {
-      content: "✅";
-      margin-right: .6rem;
-    }
-
-    /* ---------- FOOTER ---------- */
-    footer {
-      margin-top: 3rem;
-      font-size: .9rem;
-      color: var(--subtle);
-    }
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 600px) {
-      .banner { height: 35vh; }
-      table, th, td { font-size: .9rem; }
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TabuaCon 2025 – 15-17 Ago | Venham pelo vinho, fiquem pelos memes</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+:root{
+  --bg:#0a0a0a;
+  --card:#111;
+  --accent:#00ff88;
+  --accent-glow:#00ff8833;
+  --text:#e5e5e5;
+  --subtle:#888;
+  --border:#1e1e1e;
+  --font:"Inter",sans-serif;
+  --shadow:0 0 20px var(--accent-glow);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+/* ----- BANNER COM SLIDESHOW ----- */
+.banner{position:relative;height:55vh;overflow:hidden}
+.slide{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease-in-out}
+.slide.active{opacity:1}
+.banner-overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;text-align:center}
+.banner-text{font-weight:700;font-size:clamp(1.8rem,5vw,3.2rem);color:var(--accent);text-shadow:0 0 12px var(--accent-glow);animation:glow 2s ease-in-out infinite alternate}
+@keyframes glow{from{text-shadow:0 0 12px var(--accent-glow)}to{text-shadow:0 0 20px var(--accent),0 0 40px var(--accent)}}
+/* ----- CONTAINER ----- */
+.container{max-width:920px;margin:0 auto;padding:3rem 1.5rem 5rem}
+h1,h2,h3{color:var(--accent);margin-top:2.5rem}
+h1{font-size:2.3rem;border-bottom:2px solid var(--accent);padding-bottom:.5rem}
+/* ----- CARTAS DE AVENTURA ----- */
+.card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);margin:1.7rem 0}
+.card img{width:100%;height:180px;object-fit:cover}
+.card-body{padding:1.2rem 1.4rem}
+.card h3{margin:.3rem 0 .6rem;font-size:1.35rem}
+.card p{margin:.4rem 0;font-size:.95rem;color:var(--subtle)}
+.card .time{color:var(--accent);font-weight:600}
+.card:hover{transform:translateY(-4px);transition:.3s}
+/* ----- GALERIA DE MEMES ----- */
+.meme-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.8rem;margin-top:.8rem}
+.meme-gallery img{width:100%;border-radius:8px;transition:.2s;cursor:pointer}
+.meme-gallery img:hover{transform:scale(1.12) rotate(-2deg);box-shadow:0 0 15px var(--accent)}
+/* ----- RESPONSIVE ----- */
+@media(max-width:600px){.banner{height:38vh}}
+</style>
 </head>
 <body>
 
-  <!-- Futuristic Banner -->
-  <div class="banner">
-    <img src="https://turismodocentro.pt/wp-content/uploads/2019/12/T%C3%A1bua.jpg" alt="Vista deslumbrante de Tábua"/>
-    <div class="banner-overlay">
-      <div class="banner-text">Roteiro de fim-de-semana em Tábua<br/><small>15–17 de Agosto de 2025</small></div>
+<!-- BANNER COM 4 IMAGENS ROTATIVAS -->
+<div class="banner">
+  <img class="slide active" src="https://turismodocentro.pt/wp-content/uploads/2019/12/T%C3%A1bua.jpg" alt="Vista Tábua">
+  <img class="slide" src="https://i.imgur.com/8tT0YkN.jpg" alt="Praia fluvial Avô">
+  <img class="slide" src="https://i.imgur.com/9cD7Yoo.jpg" alt="Vinhos Quinta Kania">
+  <img class="slide" src="https://i.imgur.com/7zJ7Hn6.jpg" alt="Festa na piscina">
+  <div class="banner-overlay">
+    <div class="banner-text">TabuaCon 2025<br/><small>15-17 Ago • Tragam a carne e os memes</small></div>
+  </div>
+</div>
+
+<div class="container">
+  <h1>📍 TL;DR em português</h1>
+  <p>8 pessoas • Airbnb com piscina • 3 dias de comer, beber, flutuar. Role para o caos.</p>
+
+  <!-- DIA 1 -->
+  <h2>🗓️ Dia 1 – Qui 15 | A Aterragem</h2>
+  <div class="card">
+    <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-1450088040336122859/original/3773db39-7044-4503-a1ad-f274ff8d131f.jpeg?im_w=1440" alt="Check-in">
+    <div class="card-body">
+      <span class="time">14h-17h</span>
+      <h3>Check-in + Concurso de Bomba na Piscina</h3>
+      <p>O primeiro a fazer barriga-flop paga 5 € ao jarro da sangria.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://cdn.jornaldenegocios.pt/images/2015-03/img_1200x676uu2015-03-25-14-05-00-248747.jpg" alt="Compras">
+    <div class="card-body">
+      <span class="time">17h30</span>
+      <h3>Speedrun ao Intermarché</h3>
+      <p>30 min para comprar carne, queijo e o flamingo insuflável mais barato.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://minervafoods.com/wp-content/uploads/2023/02/Acompanhamento-para-churrasco-confira-8-opcoes-saborosas-scaled.jpg" alt="Churrasco">
+    <div class="card-body">
+      <span class="time">19h30-23h</span>
+      <h3>Churrasco & Roleta do Spotify</h3>
+      <p>Cada um mete uma música à fila. Death-metal às 3 da manhã? Sim, por favor.</p>
     </div>
   </div>
 
-  <div class="container">
+  <!-- DIA 2 -->
+  <h2>🗓️ Dia 2 – Sex 16 | A Quest Principal</h2>
+  <div class="card">
+    <img src="https://www.casadaquiana.pt/wp-content/uploads/2019/06/IMG_1201-1-1600x533.jpg" alt="Praia Avô">
+    <div class="card-body">
+      <span class="time">10h-12h30</span>
+      <h3>Praia Fluvial de Avô – Boss Voley</h3>
+      <p>Equipa perdedora faz o jantar. Areia nos calções = tempero extra.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://m.media-amazon.com/images/I/71FE-zuprjL.jpg" alt="Pool party">
+    <div class="card-body">
+      <span class="time">19h30-23h30</span>
+      <h3>Pool Party XP Boost</h3>
+      <p>Casal extra chega: +2 jogadores para o campeonato de beer-pong.</p>
+    </div>
+  </div>
 
-    <h1>Introdução</h1>
-    <p>Grupo: 3 casais (6 pessoas) + 1 casal extra no dia 16.<br/>Alojamento: Airbnb já reservado com piscina privada.</p>
+  <!-- DIA 3 -->
+  <h2>🗓️ Dia 3 – Sáb 17 | Saque & Fuga</h2>
+  <div class="card">
+    <img src="https://www.blandyswinelodge.com/wp-content/uploads/2022/09/BWL-Prancheta-9-100.jpg" alt="Quinta Kania">
+    <div class="card-body">
+      <span class="time">10h30-12h</span>
+      <h3>Quinta Kania – Boss Prova de Vinhos</h3>
+      <p>Vencer 3 provas sem usar o cuspiço = conquista rara.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://greentrekker.pt/site/assets/files/121995/cascata-fraga-da-pena-min-1.1140x400.jpg" alt="Fraga da Pena">
+    <div class="card-body">
+      <span class="time">16h</span>
+      <h3>Fraga da Pena – Regelaço Natural</h3>
+      <p>Piscina de montanha dá -50 HP de ressaca. Vale a pena.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://fadoreserve.com/img/ofaia_header.jpg" alt="Jantar despedida">
+    <div class="card-body">
+      <span class="time">18h30</span>
+      <h3>Jantar de Despedida @ O Faia</h3>
+      <p>Arroz de lampreia ou revolta. Foto obrigatória com flamingo.</p>
+    </div>
+  </div>
 
-    <h2>Quinta-feira, 15 de Agosto</h2>
-    <table>
-      <thead>
-        <tr><th>Hora</th><th>Atividade</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>14h–17h</td><td><strong>Check-in e descanso</strong> no Airbnb (piscina + vista serrana).</td></tr>
-        <tr><td>17h30</td><td><strong>Compras para o churrasco</strong> – Intermarché Tábua ou Mercado Municipal.</td></tr>
-        <tr><td>19h30–23h</td><td><strong>Churrasco na casa</strong> – grelhar, vinho regional, playlist portuguesa.</td></tr>
-      </tbody>
-    </table>
-    <blockquote>Dica: prove o <em>queijo da Serra da Estrela</em> e o vinho Dão do produtor local.</blockquote>
 
-    <h2>Sexta-feira, 16 de Agosto</h2>
-    <table>
-      <thead>
-        <tr><th>Hora</th><th>Atividade</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>08h30–09h30</td><td>Pequeno-almoço caseiro com pastel de nata e café delta.</td></tr>
-        <tr><td>10h–12h30</td><td><strong>Praia fluvial de Avô</strong> – areia branca, águas cristalinas e pic-nic.</td></tr>
-        <tr><td>12h45</td><td>Almoço ligeiro no café-bar da praia (petiscos + sangria).</td></tr>
-        <tr><td>14h–16h30</td><td><strong>Passadiços de Santa Comba Dão</strong> – caminhada fácil de 5 km com vistas.</td></tr>
-        <tr><td>17h</td><td>Regresso ao Airbnb – salto na piscina.</td></tr>
-        <tr><td>18h</td><td><strong>Chegada do casal extra</strong> – boas-vindas com espumante.</td></tr>
-        <tr><td>19h30–23h30</td><td><strong>Mega-churrasco & pool party</strong> – 8 pessoas, churrasqueira, música, jogos.</td></tr>
-      </tbody>
-    </table>
-    <blockquote>Jogos à beira da piscina: matraquilhos portátil, <em>beer-pong</em> português, cartas de <strong>Sueca</strong>.</blockquote>
+  <!-- CHECKLIST -->
+  <h2>📦 Lista de Saque</h2>
+  <ul style="list-style:none;padding-left:0">
+    <li>✅ Airbnb pago (checkout tardio para ressacas)</li>
+    <li>✅ 2 carros, 8 cintos, 0 pessoas designadas (rodízio no carro)</li>
+    <li>✅ Coluna BT, cartas à prova d’água, FPS 50, flamingo insuflável</li>
+    <li>✅ Reserva de emergência de bifanas</li>
+  </ul>
 
-    <h2>Sábado, 17 de Agosto</h2>
-    <table>
-      <thead>
-        <tr><th>Hora</th><th>Atividade</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>09h–10h</td><td>Pequeno-almoço tardio – frutas regionais, pão de milho, compotas.</td></tr>
-        <tr><td>10h30–12h</td><td><strong>Quinta Kania Farm</strong> – visita guiada, prova de vinhos orgânicos.</td></tr>
-        <tr><td>12h15–13h30</td><td>Almoço na <strong>Tasquinha da Quinta</strong> – cabrito assado no forno a lenha.</td></tr>
-        <tr><td>14h–15h30</td><td><strong>Ruínas Romanas de Bobadela</strong> – templo, mosaicos e história milenar.</td></tr>
-        <tr><td>16h</td><td>Paragem gelada na <strong>Fraga da Pena</strong> – cascata e poços naturais.</td></tr>
-        <tr><td>17h30</td><td>Retorno ao Airbnb – arrumação e <em>check-out</em> flexible até às 19h.</td></tr>
-        <tr><td>18h30</td><td><strong>Jantar de despedida</strong> no <strong>Restaurante O Faia</strong> – arroz de lampreia.</td></tr>
-      </tbody>
-    </table>
+  <footer style="margin-top:3rem;font-size:.9rem;color:var(--subtle)">
+    Atualizado em 16 Jul 2025 — <a href="https://jnassula.github.io/tabua-2025" style="color:var(--accent)">Faça fork da sua edição meme</a>
+  </footer>
+</div>
 
-    <h2>Sugestões extra para quem quiser estender</h2>
-    <ul>
-      <li><strong>Praia fluvial de Côja</strong> – stand-up paddle e caiaque.</li>
-      <li><strong>Baloiço das Carvalhas</strong> – baloiço gigante com vista panorâmica.</li>
-      <li><strong>Coimbra</strong> – 40 min de carro, Universidade Património Mundial.</li>
-    </ul>
-
-    <h2>Check-list rápido</h2>
-    <ul class="checklist">
-      <li>Reserva Airbnb confirmada</li>
-      <li>Carros alugados (estacionamento grátis na casa)</li>
-      <li>Lista de compras: carvão, carnes, pão, saladas, vinho Dão, Super Bock</li>
-      <li>Colunas Bluetooth, toalhas de piscina extra, protetor solar 50+</li>
-    </ul>
-
-    <footer>
-      Última actualização: 16 Jul 2025<br/>
-      <a href="https://github.com/username/tabua-august-2025">Ver este roteiro no GitHub</a>
-    </footer>
-
-  </div><!-- /.container -->
-
+<!-- Mini JS para o slideshow -->
+<script>
+const slides=document.querySelectorAll('.slide');
+let idx=0;
+setInterval(()=>{
+  slides[idx].classList.remove('active');
+  idx=(idx+1)%slides.length;
+  slides[idx].classList.add('active');
+},4200);
+</script>
 </body>
 </html>
